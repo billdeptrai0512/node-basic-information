@@ -1,8 +1,6 @@
-const http = require('http');
-const fs = require('fs')
-
 const express = require("express");
 const app = express();
+const fs = require('fs')
 
 app.get("/", (req, res) => {
     fs.readFile('./html/index.html', (err, data) => {
@@ -38,7 +36,7 @@ app.get("/contact", (req, res) => {
 })
 
 app.use((req, res) => {
-    fs.readFile('./html/404.html', (err, data) => {
+    fs.readFile('./html/error.html', (err, data) => {
         if (err) {
             res.status(404).send("404 - Page Not Found");
         } else {
